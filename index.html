@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Dreadful" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="screen-orientation" content="landscape" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <title>Dreadful</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    { "imports": { "three": "./lib/three.module.js" } }
+  </script>
+</head>
+<body>
+  <div id="game">
+    <canvas id="view"></canvas>
+    <canvas id="hudCanvas"></canvas>
+    <div id="flash"></div>
+
+    <!-- HUD -->
+    <div id="hud" class="hidden">
+      <div id="hudTopLeft">
+        <div class="bar life"><div id="lifeFill"></div><span id="lifeText"></span></div>
+        <div class="bar xp"><div id="xpFill"></div></div>
+        <div id="lvlText"></div>
+        <div id="buffs"></div>
+      </div>
+      <div id="target" class="hidden"><div id="targetName"></div><div class="bar tbar"><div id="targetFill"></div></div><div id="targetMods"></div></div>
+      <div id="hudTopRight">
+        <div id="goldText"></div>
+        <div id="depthText"></div>
+        <canvas id="minimap" width="96" height="96"></canvas>
+      </div>
+      <div id="weaponBar"></div>
+      <div id="prompt" class="hidden"></div>
+      <div id="log"></div>
+      <div id="banner" class="hidden"><div id="bannerTitle"></div><div id="bannerSub"></div></div>
+      <div id="dashPips"></div>
+    </div>
+
+    <!-- Touch controls -->
+    <div id="touch">
+      <div id="stickBase"><div id="stickKnob"></div></div>
+      <div class="tbtn" id="btnFire" data-btn="fire">FIRE</div>
+      <div class="tbtn" id="btnJump" data-btn="jump">JUMP</div>
+      <div class="tbtn" id="btnDash" data-btn="dash">DASH</div>
+      <div class="tbtn" id="btnUse" data-btn="use">USE</div>
+      <div class="tbtn small" id="btnPotion" data-btn="potion">♥<span id="potCount">0</span></div>
+      <div class="tbtn small" id="btnSwap" data-btn="swap">⇄</div>
+      <div class="tbtn small" id="btnBag" data-btn="inventory">BAG</div>
+      <div class="tbtn small" id="btnPause" data-btn="pause">II</div>
+    </div>
+
+    <!-- Menus -->
+    <div id="menuRoot"></div>
+
+    <div id="title" class="overlay">
+      <div class="titleInner">
+        <h1>DREADFUL</h1>
+        <div class="subtitle">Descend. Plunder. Perish. Repeat.</div>
+        <div id="titleButtons"></div>
+        <div class="titleHelp" id="titleHelp"></div>
+      </div>
+    </div>
+
+    <div id="rotate" class="overlay">
+      <div>⟳</div>
+      <p>Rotate your device to landscape</p>
+    </div>
+  </div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
